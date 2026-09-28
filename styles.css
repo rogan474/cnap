@@ -1,0 +1,138 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Задание 7. Фото никогда не вылезут */
+img { max-width: 100%; height: auto; }
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background-color: #380073;
+}
+
+.logo {
+  color: #fff;
+  font-weight: bold;
+  font-size: 22px;
+  text-decoration: none;
+  letter-spacing: 3px;
+}
+
+.menu { display: flex; gap: 20px; }
+.menu a { color: #dbe8f6; text-decoration: none; }
+.menu a:hover { color: #fff; }
+
+main { max-width: 1100px; margin: 0 auto; padding: 24px; }
+
+.hero { text-align: center; padding: 40px 0; }
+
+/* Задание 9. clamp() вместо медиа */
+.hero h1 { font-size: clamp(26px, 5vw, 40px); color: #000000; }
+
+.hero p { color: #667; margin: 10px 0 20px; }
+
+.btn {
+  display: inline-block;
+  background-color: #380073;
+  color: #fff;
+  padding: 12px 22px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin: 40px 0;
+}
+
+.card { border-radius: 12px; overflow: hidden; background-color: #e2e8f0; }
+.card img { width: 100%; height: 200px; object-fit: cover; display: block; }
+
+.about {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 32px;
+  align-items: center;
+  margin: 40px 0;
+}
+
+.stats { display: flex; flex-direction: column; gap: 16px; }
+.num { font-size: 32px; font-weight: bold; color: #12007b; display: block; }
+.cap { color: #667; }
+
+/* Задание 6. «Умная сетка» для услуг */
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 16px;
+  margin: 40px 0;
+}
+
+.service {
+  background-color: #fff;
+  border: 1px solid #d8dce2;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.reviews {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin: 40px 0;
+}
+
+.review { background-color: #f1e4ff; border-radius: 12px; padding: 16px; }
+
+footer { background-color: #380073; color: #dbe8f6; text-align: center; padding: 16px; }
+
+/* ===== MEDIA QUERIES ===== */
+
+/* Задание 1. Галерея перестраивается */
+@media (max-width: 640px) {
+  .gallery { grid-template-columns: 1fr; }
+}
+@media (min-width: 641px) and (max-width: 1023px) {
+  .gallery { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Задание 2. Меню столбиком на телефоне */
+@media (max-width: 640px) {
+  .nav { flex-direction: column; align-items: stretch; text-align: center; }
+  .menu { flex-direction: column; gap: 8px; }
+}
+
+/* Задание 3. Герой и «О студии» по-мобильному
+   (правило для .hero h1 удалено согласно заданию 9) */
+@media (max-width: 700px) {
+  .about { grid-template-columns: 1fr; }
+  .stats { flex-direction: row; justify-content: space-around; }
+}
+
+/* Задание 4. Услуги: 1 → 2 → 4
+   УДАЛЕНО в задании 6 (заменено «умной сеткой» выше):
+   @media (max-width: 640px) { .services { grid-template-columns: 1fr; } }
+   @media (min-width: 641px) and (max-width: 1023px) { .services { grid-template-columns: repeat(2, 1fr); } }
+*/
+
+/* Задание 5. «Отзывы» спрячем на телефоне */
+@media (max-width: 600px) {
+  .reviews { display: none; }
+}
+
+/* Задание 8. Воздух для телефона */
+@media (max-width: 640px) {
+  main { padding: 16px; }
+  .hero { padding: 24px 0; }
+}
+
